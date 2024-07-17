@@ -1,0 +1,48 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model FeaturedImages {
+  id             String @id @default(auto()) @map("_id") @db.ObjectId
+  images Image[]
+}
+
+model GalleryImages {
+  id             String @id @default(auto()) @map("_id") @db.ObjectId
+  images GalleryImage[]
+} 
+
+enum UserRole {
+  ADMIN 
+  USER
+}
+
+type GalleryImage {
+title String
+description String
+image Image
+
+}
+
+type Image {
+  key                String
+  name            String
+  url                 String
+  size               Int
+  serverData  ServerData
+}
+
+type ServerData {
+  uploadedBy String  
+}
