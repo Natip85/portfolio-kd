@@ -178,3 +178,6 @@ body {
 .hoverText:has(+ .hoverText + .hoverText:hover) {
   font-weight: 300;
 }
+.diagonalImage {
+  clip-path: polygon(40% 0, 100% 0, 60% 100%, 0% 100%);
+}

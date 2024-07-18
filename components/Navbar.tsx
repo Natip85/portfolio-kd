@@ -22,14 +22,14 @@ export default function Navbar() {
     >
       <div className="flex h-[47px] max-w-6xl mx-auto items-center justify-between px-4">
         <div className="flex items-center space-x-4">
-          <Link
+          <TransitionLink
             href="/"
             className="flex flex-row space-x-3 items-center justify-center"
           >
             <div className="flex justify-center text-[#f4587c] text-2xl md:text-4xl font-bold text-gradient">
               KD
             </div>
-          </Link>
+          </TransitionLink>
         </div>
         <div className="flex items-center gap-5">
           {NAV_ITEMS.map((item, idx) => {

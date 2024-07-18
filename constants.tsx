@@ -1,13 +1,4 @@
-import {
-  Hand,
-  Highlighter,
-  Home,
-  Image,
-  Images,
-  PhoneCall,
-  PictureInPicture,
-  Star,
-} from "lucide-react";
+import { Home, Images, Star, Store } from "lucide-react";
 
 export type NavItem = {
   title: string;
@@ -19,17 +10,14 @@ export const NAV_ITEMS: NavItem[] = [
   {
     title: "Gallery",
     path: "/gallery",
-    icon: (props) => <PictureInPicture {...props} />,
   },
   {
     title: "About",
     path: "/about",
-    icon: (props) => <Hand {...props} />,
   },
   {
     title: "Contact",
     path: "/contact",
-    icon: (props) => <PhoneCall {...props} />,
   },
 ];
 export const SIDENAV_ITEMS: NavItem[] = [
@@ -47,5 +35,10 @@ export const SIDENAV_ITEMS: NavItem[] = [
     title: "Gallery Images",
     path: "/admin/gallery-images",
     icon: (props) => <Images {...props} />,
+  },
+  {
+    title: "Live site",
+    path: "/",
+    icon: (props) => <Store {...props} />,
   },
 ];

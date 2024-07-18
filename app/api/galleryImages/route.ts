@@ -50,38 +50,3 @@ export async function POST(req: Request, res: Response) {
     }
   }
 }
-
-// export async function PATCH(req: Request, res: Response) {
-//   try {
-//     const body = await req.json();
-//     console.log("BODY>>>", body);
-
-//     const { images } = body;
-
-//     const galleryImages = await db.galleryImages.update({});
-//     return NextResponse.json(
-//       { images: galleryImages, message: "Gallery updated." },
-//       { status: 200 }
-//     );
-//   } catch (error) {
-//     if (error instanceof z.ZodError) {
-//       console.log("ERRRRR>>>>>", error);
-
-//       return NextResponse.json(
-//         { error: error.issues },
-//         {
-//           status: 400,
-//         }
-//       );
-//     } else {
-//       console.log("ERROR>>>", error);
-
-//       return NextResponse.json(
-//         { error: "An unexpected error occurred!" },
-//         {
-//           status: 500,
-//         }
-//       );
-//     }
-//   }
-// }

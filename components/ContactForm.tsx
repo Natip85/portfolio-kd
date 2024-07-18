@@ -59,12 +59,7 @@ export default function ContactForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <HoverEffectInput
-                      placeholder="NAME"
-                      {...field}
-
-                      //   className="bg-[#191919] border-none focus-visible:ring-offset-0 focus-visible:outline-[#78f7a2] rounded-none text-white"
-                    />
+                    <HoverEffectInput placeholder="NAME" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -78,11 +73,7 @@ export default function ContactForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <HoverEffectInput
-                      placeholder="EMAIL"
-                      {...field}
-                      //   className="bg-[#191919] border-none focus-visible:ring-offset-0 focus-visible:outline-[#78f7a2] rounded-none text-white"
-                    />
+                    <HoverEffectInput placeholder="EMAIL" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -96,11 +87,7 @@ export default function ContactForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <HoverEffectInput
-                      placeholder="SUBJECT"
-                      {...field}
-                      //   className="bg-[#191919] border-none focus-visible:ring-offset-0 focus-visible:outline-[#78f7a2] rounded-none text-white"
-                    />
+                    <HoverEffectInput placeholder="SUBJECT" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -118,7 +105,6 @@ export default function ContactForm() {
                       placeholder="MESSAGE"
                       {...field}
                       className="h-[6rem]"
-                      //   className="bg-[#191919] border-none focus-visible:ring-offset-0 focus-visible:outline-[#78f7a2] rounded-none text-white"
                     />
                   </FormControl>
                   <FormMessage />

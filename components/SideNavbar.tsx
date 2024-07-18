@@ -9,7 +9,7 @@ const SideNavbar = () => {
     <div className="md:w-60 bg-black h-screen flex-1 fixed border-r border-secondary hidden md:flex">
       <div className="flex flex-col space-y-6 w-full py-5">
         <Link
-          href="/"
+          href="/admin"
           className="flex flex-row space-x-3 items-center justify-center"
         >
           <div className="flex justify-center text-[#f4587c] text-2xl md:text-4xl font-bold text-gradient">

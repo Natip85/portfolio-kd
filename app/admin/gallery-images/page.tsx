@@ -1,8 +1,6 @@
 import AddGalleryImagesForm from "@/components/AddGalleryImagesForm";
 import db from "@/db/db";
-// const getGalleryImages = () => {
-//   return db.galleryImages.findMany({});
-// };
+
 async function getGalleryImages() {
   const galleryImages = await db.galleryImages.findMany({});
 

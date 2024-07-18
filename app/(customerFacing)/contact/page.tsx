@@ -2,6 +2,7 @@
 import ContactForm from "@/components/ContactForm";
 import { Facebook, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function ContactPage() {
   return (
@@ -28,14 +29,16 @@ export default function ContactPage() {
                 {child}
               </span>
             ))}
-          </h2>{" "}
+          </h2>
           <p className="text-white text-sm">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam
             beatae ipsam magni autem dolorem soluta quam iusto suscipit eius.
             Pariatur beatae eveniet accusamus eius natus iure provident nisi
             iusto minima.
           </p>
-          <div className="text-white">4232324434343</div>
+          <Link href="tel:+972527533703" className="text-white">
+            +972 52 699 0753
+          </Link>
           <div className="flex items-center gap-3">
             <span>
               <Facebook className="text-white cursor-pointer" />

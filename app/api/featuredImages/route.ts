@@ -4,10 +4,6 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request, res: Response) {
   try {
-    console.log("fdfggf");
-    console.log("fdfggf");
-    console.log("fdfggf");
-
     const body = await req.json();
 
     const { images } = body;

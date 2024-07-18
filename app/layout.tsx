@@ -30,7 +30,6 @@ export default function RootLayout({
           )}
         >
           <main className="relative flex flex-col min-h-screen">
-            {/* <Navbar /> */}
             <div className="flex-grow flex-1">
               {children}
               <Toaster />
@@ -42,6 +41,3 @@ export default function RootLayout({
     </QueryProvider>
   );
 }
-
-//gradient bg
-//bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-red-900 to-[#78f7a2]

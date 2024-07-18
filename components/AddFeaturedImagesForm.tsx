@@ -45,7 +45,6 @@ export default function AddFeaturedImagesForm({
       images: images.flatMap((img) => img.images) || undefined,
     },
   });
-  console.log("fdgfgf");
 
   useEffect(() => {
     if (images) {

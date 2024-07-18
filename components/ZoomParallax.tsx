@@ -1,11 +1,5 @@
 "use client";
-// import Picture1 from "/public/1.png";
-// import Picture2 from "/public/2.jpeg";
-// import Picture3 from "/public/3.png";
-// import Picture4 from "/public/4.jpg";
-// import Picture5 from "/public/5.jpg";
-// import Picture6 from "/public/6.jpg";
-// import Picture7 from "/public/7.jpeg";
+
 import Image from "next/image";
 import { useScroll, useTransform, motion } from "framer-motion";
 import React, { useRef, useState } from "react";
@@ -26,36 +20,6 @@ export default function ZoomParallax({ imgs }: ZoomParallaxProps) {
   const scale8 = useTransform(scrollYProgress, [0, 1], [1, 8]);
   const scale9 = useTransform(scrollYProgress, [0, 1], [1, 9]);
 
-  //   const pictures = [
-  //     {
-  //       src: Picture1,
-  //       scale: scale4,
-  //     },
-  //     {
-  //       src: Picture2,
-  //       scale: scale5,
-  //     },
-  //     {
-  //       src: Picture3,
-  //       scale: scale6,
-  //     },
-  //     {
-  //       src: Picture4,
-  //       scale: scale5,
-  //     },
-  //     {
-  //       src: Picture5,
-  //       scale: scale6,
-  //     },
-  //     {
-  //       src: Picture6,
-  //       scale: scale8,
-  //     },
-  //     {
-  //       src: Picture7,
-  //       scale: scale9,
-  //     },
-  //   ];
   return (
     <div ref={container} className="relative h-[300vh]">
       <div className="sticky overflow-hidden top-0 h-[100vh]">
@@ -72,15 +36,7 @@ export default function ZoomParallax({ imgs }: ZoomParallaxProps) {
           return (
             <motion.div key={index} style={{ scale }} className="el">
               <div className="imageContainer">
-                <Image
-                  src={src}
-                  fill
-                  priority
-                  alt="image"
-                  sizes="20"
-                  // placeholder="blur"
-                  // blurDataURL=""
-                />
+                <Image src={src} fill priority alt="image" sizes="20" />
                 {index === 0 && ( // Add text only over the first image
                   <div className="absolute inset-0 flex flex-col justify-center items-center z-10">
                     <p className="text-white text-sm font-thin">Art by</p>

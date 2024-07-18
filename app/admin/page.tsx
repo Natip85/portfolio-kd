@@ -4,15 +4,6 @@ import { Edit } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-// const feauturedImages = [
-//   "https://utfs.io/f/625252f9-dfe1-451b-b2f9-788cb7a05034-1d.jpeg",
-//   "https://utfs.io/f/625252f9-dfe1-451b-b2f9-788cb7a05034-1d.jpeg",
-//   "https://utfs.io/f/625252f9-dfe1-451b-b2f9-788cb7a05034-1d.jpeg",
-//   "https://utfs.io/f/625252f9-dfe1-451b-b2f9-788cb7a05034-1d.jpeg",
-//   "https://utfs.io/f/625252f9-dfe1-451b-b2f9-788cb7a05034-1d.jpeg",
-//   "https://utfs.io/f/625252f9-dfe1-451b-b2f9-788cb7a05034-1d.jpeg",
-//   "https://utfs.io/f/625252f9-dfe1-451b-b2f9-788cb7a05034-1d.jpeg",
-// ];
 async function getFeaturedImages() {
   const featuredImages = await db.featuredImages.findMany({});
 

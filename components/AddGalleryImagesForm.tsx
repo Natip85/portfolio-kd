@@ -115,7 +115,7 @@ export default function AddGalleryImagesForm({
       >
         <ul className="flex flex-col gap-3">
           {fields.map((item, index) => (
-            <li key={item.id} className="border rounded-md p-5">
+            <li key={item.id} className=" rounded-md p-5">
               <div className="flex flex-col md:flex-row items-center gap-5">
                 <div className="flex-1 flex flex-col gap-3">
                   <FormField
@@ -127,11 +127,7 @@ export default function AddGalleryImagesForm({
                           Image title
                         </FormLabel>
                         <FormControl>
-                          <Input
-                            id="title"
-                            // placeholder="Image title..."
-                            {...field}
-                          />
+                          <Input id="title" {...field} />
                         </FormControl>
                         <FormDescription>
                           Please provide the title of the image. This will be
@@ -153,11 +149,7 @@ export default function AddGalleryImagesForm({
                           Image description
                         </FormLabel>
                         <FormControl>
-                          <Input
-                            id="description"
-                            // placeholder="Image description..."
-                            {...field}
-                          />
+                          <Input id="description" {...field} />
                         </FormControl>
                         <FormDescription>
                           Describe the image in detail. This helps customers
@@ -216,7 +208,7 @@ export default function AddGalleryImagesForm({
                 <div className="self-start">
                   <Button
                     type="button"
-                    variant={"ghost"}
+                    variant={"link"}
                     onClick={() => {
                       remove(index);
                       setImageUrls((prevState) => {
@@ -226,9 +218,9 @@ export default function AddGalleryImagesForm({
                         return updatedState;
                       });
                     }}
-                    className="hover:bg-transparent"
+                    className=""
                   >
-                    <Trash2 className="text-destructive" />
+                    <Trash2 className="text-destructive hover:text-destructive/70" />
                   </Button>
                 </div>
               </div>
