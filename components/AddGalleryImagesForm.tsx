@@ -40,7 +40,7 @@ export const AVAILABLE_CATEGORIES = [
   "WATERCOLORS",
   "PASTELS",
   "CHARCOAL",
-  "ARCRYLICS",
+  "ACRYLICS",
   "MULTIMEDIACOLLAGE",
 ] as const;
 
