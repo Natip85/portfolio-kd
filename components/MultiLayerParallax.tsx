@@ -3,7 +3,11 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 
-export default function MultiLayerParallax({ category }: { category: string }) {
+export default function MultiLayerParallax({
+  category,
+}: {
+  category?: string;
+}) {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
