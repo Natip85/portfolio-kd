@@ -25,7 +25,7 @@ export default function RootLayout({
       <html lang="en" suppressHydrationWarning>
         <body
           className={cn(
-            "relative h-full bg-[#191919] font-sans antialiased",
+            "relative h-full bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-black to-[#5d5d5d] font-sans antialiased",
             fontSans.variable
           )}
         >

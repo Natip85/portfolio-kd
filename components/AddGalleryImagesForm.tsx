@@ -1,7 +1,11 @@
 "use client";
 import * as z from "zod";
 import { UploadButton } from "@/components/uploadthing";
-import { GalleryImages, Image as prismaImage } from "@prisma/client";
+import {
+  GalleryImages,
+  ImageCategory,
+  Image as prismaImage,
+} from "@prisma/client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
@@ -22,9 +26,24 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useToast } from "./ui/use-toast";
 import { useRouter } from "next/navigation";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
 type AddGalleryImagesFormProps = {
   images: GalleryImages[];
 };
+export const AVAILABLE_CATEGORIES = [
+  "WATERCOLORS",
+  "PASTELS",
+  "CHARCOAL",
+  "ARCRYLICS",
+  "MULTIMEDIACOLLAGE",
+] as const;
+
 export const addGalleryImagesSchema = z.object({
   images: z
     .array(
@@ -44,6 +63,7 @@ export const addGalleryImagesSchema = z.object({
             uploadedBy: z.string(),
           }),
         }),
+        category: z.nativeEnum(ImageCategory),
       })
     )
     .nonempty(),
@@ -107,15 +127,19 @@ export default function AddGalleryImagesForm({
       },
     });
   };
+
   return (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex flex-col space-y-8"
       >
-        <ul className="flex flex-col gap-3">
+        <ul className="flex flex-col gap-5">
           {fields.map((item, index) => (
-            <li key={item.id} className=" rounded-md p-5">
+            <li
+              key={item.id}
+              className="p-5 bg-black border-[1.2px]  border-secondary rounded-md shadow-sm shadow-white"
+            >
               <div className="flex flex-col md:flex-row items-center gap-5">
                 <div className="flex-1 flex flex-col gap-3">
                   <FormField
@@ -124,7 +148,7 @@ export default function AddGalleryImagesForm({
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel htmlFor="title" className="text-secondary">
-                          Image title
+                          Title
                         </FormLabel>
                         <FormControl>
                           <Input id="title" {...field} />
@@ -146,7 +170,7 @@ export default function AddGalleryImagesForm({
                           htmlFor="description"
                           className="text-secondary"
                         >
-                          Image description
+                          Description
                         </FormLabel>
                         <FormControl>
                           <Input id="description" {...field} />
@@ -154,6 +178,51 @@ export default function AddGalleryImagesForm({
                         <FormDescription>
                           Describe the image in detail. This helps customers
                           understand what the image is about.
+                        </FormDescription>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name={`images.${index}.category`}
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel
+                          htmlFor="category"
+                          className="text-secondary"
+                        >
+                          Category
+                        </FormLabel>
+                        <FormControl>
+                          <Select
+                            onValueChange={(value) =>
+                              form.setValue(
+                                `images.${index}.category`,
+                                value as ImageCategory
+                              )
+                            }
+                            value={field.value}
+                          >
+                            <SelectTrigger className="bg-background w-fit">
+                              <SelectValue placeholder="Select a category" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {AVAILABLE_CATEGORIES.map((category) => {
+                                return (
+                                  <SelectItem key={category} value={category}>
+                                    {category}
+                                  </SelectItem>
+                                );
+                              })}
+                            </SelectContent>
+                          </Select>
+                        </FormControl>
+                        <FormDescription>
+                          Choose a category that best describes this artwork.
+                          Categories help organize your gallery and make it
+                          easier for visitors to find specific types of
+                          paintings.
                         </FormDescription>
                         <FormMessage />
                       </FormItem>
@@ -243,6 +312,7 @@ export default function AddGalleryImagesForm({
                   url: "",
                   size: 0,
                 },
+                category: ImageCategory.WATERCOLORS,
               })
             }
           >
@@ -251,15 +321,14 @@ export default function AddGalleryImagesForm({
               ? "Upload some images"
               : "Add another image"}
           </Button>
-          {form.getFieldState("images").isDirty && (
-            <Button
-              disabled={isPending || isImageLoading}
-              variant={"outline"}
-              type="submit"
-            >
-              Submit
-            </Button>
-          )}
+
+          <Button
+            disabled={isPending || isImageLoading}
+            variant={"outline"}
+            type="submit"
+          >
+            Submit
+          </Button>
         </div>
       </form>
     </Form>

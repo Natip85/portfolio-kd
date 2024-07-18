@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 
-export default function MultiLayerParallax() {
+export default function MultiLayerParallax({ category }: { category: string }) {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -23,7 +23,8 @@ export default function MultiLayerParallax() {
         style={{ y: textY }}
         className="font-bold text-white text-2xl md:text-4xl z-10"
       >
-        FEATURED PAINTINGS{" "}
+        {category === "MULTIMEDIACOLLAGE" ? "MULTIMEDIA COLLAGE" : category}
+        {!category && "All images"}
       </motion.h1>
       <motion.div
         style={{

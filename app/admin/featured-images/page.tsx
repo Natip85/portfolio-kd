@@ -12,7 +12,7 @@ export default async function FeaturedImagesPage() {
   return (
     <div className="flex flex-col gap-10 h-screen p-4 md:p-12">
       <h1 className="text-white text-2xl md:text-4xl">Featured images</h1>
-      <div className="p-5 max-w-4xl bg-black mx-auto border-secondary rounded-md shadow-sm shadow-white">
+      <div className="p-5 max-w-4xl bg-black mx-auto border-[1.2px] border-secondary rounded-md shadow-sm shadow-white">
         <AddFeaturedImagesForm images={featuredImages} />
       </div>
     </div>

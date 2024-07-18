@@ -67,6 +67,17 @@
     @apply bg-background text-foreground;
   }
 }
+.gradient-background {
+  background: radial-gradient(
+      circle at top left,
+      rgb(102, 101, 101),
+      transparent 20%
+    ),
+    radial-gradient(circle at top right, rgb(102, 101, 101), transparent 20%),
+    radial-gradient(circle at bottom left, rgb(102, 101, 101), transparent 20%),
+    radial-gradient(circle at bottom right, rgb(102, 101, 101), transparent 20%),
+    #191919;
+}
 .el {
   width: 100%;
   height: 100%;

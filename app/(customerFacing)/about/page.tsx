@@ -18,7 +18,7 @@ export default function AboutPage() {
             initial={{ x: 0, y: -200, opacity: 0 }}
             animate={{ x: 0, y: 0, opacity: 1 }}
             transition={{ duration: 2, ease: "easeInOut" }}
-            className="z-10 absolute top-[12%] left-[15%]"
+            className="z-10 absolute top-[10%] left-[15%]"
           >
             <h1 className="text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
               KINERET
@@ -28,7 +28,7 @@ export default function AboutPage() {
             </h1>
           </motion.div>
           <Image
-            src="https://utfs.io/f/5fd4673e-5930-4d35-ac7c-48f6caa452f3-go0oug.jpg"
+            src={"/profile-pic.jpeg"}
             alt="Profile image"
             layout="fill"
             objectFit="cover"

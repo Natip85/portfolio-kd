@@ -25,10 +25,11 @@ async function getGalleryImages() {
 export default async function AdminPage() {
   const { imageUrls } = await getGalleryImages();
   const { featuredImageUrls } = await getFeaturedImages();
+  //TODO: fix admin navbar on sm screen
   return (
     <div className="flex flex-col gap-10 p-4 md:p-12">
       <h1 className="text-white text-2xl md:text-4xl">Dashboard</h1>
-      <div className="min-w-xl mx-auto bg-black border-secondary shadow-sm shadow-white rounded-md p-5">
+      <div className="min-w-xl mx-auto bg-black border-[1.2px] border-secondary shadow-sm shadow-white rounded-md p-5">
         <div className="flex items-center justify-between gap-3">
           <h3 className="text-lg text-white">
             Currently active featured images
@@ -62,7 +63,7 @@ export default async function AdminPage() {
         </div>
       </div>
 
-      <div className=" bg-black mx-auto border-secondary rounded-md shadow-sm shadow-white p-5">
+      <div className=" bg-black mx-auto border-[1.2px] border-secondary rounded-md shadow-sm shadow-white p-5">
         <div className="flex items-center justify-between gap-3">
           <h3 className="text-lg text-white">
             Currently active gallery images
