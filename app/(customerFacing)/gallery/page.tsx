@@ -6,15 +6,28 @@ import db from "@/db/db";
 async function getGalleryImages() {
   const galleryImages = await db.galleryImages.findMany({});
 
-  return galleryImages;
+  return {
+    galleryImages,
+    featured: galleryImages.length
+      ? galleryImages[0].images[0].image
+      : {
+          key: "",
+          name: "",
+          url: "",
+          size: 0,
+          serverData: {
+            uploadedBy: "",
+          },
+        },
+  };
 }
 export default async function GalleryPage() {
-  const galleryImages = await getGalleryImages();
+  const { galleryImages, featured } = await getGalleryImages();
 
   return (
     <div>
       <div>
-        <MultiLayerParallax />
+        <MultiLayerParallax image={featured} />
       </div>
       <div>
         <LayoutGrid

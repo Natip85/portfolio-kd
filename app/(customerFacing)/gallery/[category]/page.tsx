@@ -10,7 +10,20 @@ async function getCategoryImages(category: string) {
     (img) => img.category === category
   );
 
-  return filteredCategories;
+  return {
+    filteredCategories,
+    featured: filteredCategories.length
+      ? filteredCategories[0].image
+      : {
+          key: "",
+          name: "",
+          url: "",
+          size: 0,
+          serverData: {
+            uploadedBy: "",
+          },
+        },
+  };
 }
 export default async function WatercolorPage({
   params: { category },
@@ -20,16 +33,16 @@ export default async function WatercolorPage({
   if (!category) {
     return <div>Somethng went wrong.</div>;
   }
-  const categoryImages = await getCategoryImages(category);
+  const { filteredCategories, featured } = await getCategoryImages(category);
 
   return (
     <div>
       <div>
-        <MultiLayerParallax category={category} />
+        <MultiLayerParallax category={category} image={featured} />
       </div>
       <div>
         <LayoutGrid
-          cards={categoryImages.map((img, index) => {
+          cards={filteredCategories.map((img, index) => {
             const cardIndex = index * 15 + index;
             let spanClass = "";
             if (cardIndex < 10) {

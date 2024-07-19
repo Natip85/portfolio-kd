@@ -1,12 +1,15 @@
 "use client";
+import { Image as PrismaImage } from "@prisma/client";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 
 export default function MultiLayerParallax({
   category,
+  image,
 }: {
   category?: string;
+  image: PrismaImage;
 }) {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -36,12 +39,7 @@ export default function MultiLayerParallax({
         }}
         className="absolute inset-0 z-0"
       >
-        <Image
-          fill
-          priority
-          src={"https://utfs.io/f/625252f9-dfe1-451b-b2f9-788cb7a05034-1d.jpeg"}
-          alt="logo"
-        />
+        <Image fill priority src={image.url || ""} alt="Featured image" />
       </motion.div>
     </motion.div>
   );
