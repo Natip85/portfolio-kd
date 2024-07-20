@@ -31,10 +31,9 @@ export default function ContactPage() {
             ))}
           </h2>
           <p className="text-white text-sm">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam
-            beatae ipsam magni autem dolorem soluta quam iusto suscipit eius.
-            Pariatur beatae eveniet accusamus eius natus iure provident nisi
-            iusto minima.
+            Thank you for visiting my website. In case you have any questions or
+            are interested in purchasing something you like, please feel free to
+            contact me via email & I will get back to you.
           </p>
           <Link href="tel:+972527533703" className="text-white">
             +972 52 699 0753
