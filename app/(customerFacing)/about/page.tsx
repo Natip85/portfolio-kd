@@ -74,7 +74,7 @@ export default function AboutPage() {
         >
           <h3 className="text-4xl text-white">Artist statement</h3>
           <p className="text-white">
-            Hi there, my name is Kineret and I'm a visual artist. I like to
+            Hi there, my name is Kineret and I&apos;m a visual artist. I like to
             experiment with different medium and often experiment with colors,
             materials, shapes and techniques. My inspiration is derived from
             nature - its colors, sounds, shapes and forms. I find that the
