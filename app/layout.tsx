@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Inter as FontSans } from "next/font/google";
+import { Inter as FontSans, Merienda } from "next/font/google";
 import { cn } from "@/lib/utils";
 import Footer from "@/components/Footer";
 import QueryProvider from "@/components/QueryProvider";
 import { Toaster } from "@/components/ui/toaster";
 
-const fontSans = FontSans({
+const merienda = Merienda({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-merienda",
 });
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,7 +26,7 @@ export default function RootLayout({
         <body
           className={cn(
             "relative h-full bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-black to-[#5d5d5d] font-sans antialiased",
-            fontSans.variable
+            merienda.variable
           )}
         >
           <main className="relative flex flex-col min-h-screen">

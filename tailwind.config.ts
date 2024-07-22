@@ -26,6 +26,7 @@ export default withUt({
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
+        merienda: ["var(--font-merienda)", ...fontFamily.sans],
       },
       colors: {
         border: "hsl(var(--border))",
