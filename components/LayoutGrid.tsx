@@ -35,7 +35,7 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
               // card.className,
               "relative overflow-hidden min-h-[10rem] border shadow-md shadow-white",
               selected?.id === card.id
-                ? "rounded-lg cursor-pointer absolute inset-0 h-1/3 w-full md:w-1/2 m-auto z-40 flex justify-center items-center flex-wrap flex-col"
+                ? "rounded-lg cursor-pointer absolute inset-0 h-[50rem] w-full md:w-1/2 m-auto z-40 flex justify-center items-center flex-wrap flex-col"
                 : lastSelected?.id === card.id
                 ? "z-40 bg-white rounded-xl h-full w-full"
                 : "bg-white rounded-xl h-full w-full cursor-pointer"
