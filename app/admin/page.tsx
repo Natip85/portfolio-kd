@@ -17,33 +17,43 @@ async function getFeaturedImages() {
 async function getGalleryImages() {
   const galleryImages = await db.galleryImages.findMany({});
 
-  const imageUrls = galleryImages.flatMap((gallery) =>
-    gallery.images.map((img) => img.image.url)
-  );
-  const allCategories = galleryImages.flatMap((img) => img.images);
-  const watercolors = allCategories.filter(
-    (cat) => cat.category === ImageCategory.WATERCOLORS
-  );
-  const pastels = allCategories.filter(
-    (cat) => cat.category === ImageCategory.PASTELS
-  );
-  const charcoal = allCategories.filter(
-    (cat) => cat.category === ImageCategory.CHARCOAL
-  );
-  const acrylics = allCategories.filter(
-    (cat) => cat.category === ImageCategory.ACRYLICS
-  );
-  const multimediaCollage = allCategories.filter(
-    (cat) => cat.category === ImageCategory.MULTIMEDIACOLLAGE
-  );
+  const imageUrls: string[] = [];
+
+  const categorizedImages = {
+    watercolors: [] as any[],
+    pastels: [] as any[],
+    charcoal: [] as any[],
+    acrylics: [] as any[],
+    multimediaCollage: [] as any[],
+  };
+
+  galleryImages.forEach((images) => {
+    images.images.forEach((img) => {
+      imageUrls.push(img.image.url);
+
+      switch (img.category) {
+        case ImageCategory.WATERCOLORS:
+          categorizedImages.watercolors.push(img);
+          break;
+        case ImageCategory.PASTELS:
+          categorizedImages.pastels.push(img);
+          break;
+        case ImageCategory.CHARCOAL:
+          categorizedImages.charcoal.push(img);
+          break;
+        case ImageCategory.ACRYLICS:
+          categorizedImages.acrylics.push(img);
+          break;
+        case ImageCategory.MULTIMEDIACOLLAGE:
+          categorizedImages.multimediaCollage.push(img);
+          break;
+      }
+    });
+  });
 
   return {
     imageUrls,
-    watercolors,
-    pastels,
-    charcoal,
-    acrylics,
-    multimediaCollage,
+    ...categorizedImages,
   };
 }
 export default async function AdminPage() {
