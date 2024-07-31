@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import db from "@/db/db";
+import { ImageCategory } from "@prisma/client";
 import { Edit } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,11 +20,41 @@ async function getGalleryImages() {
   const imageUrls = galleryImages.flatMap((gallery) =>
     gallery.images.map((img) => img.image.url)
   );
+  const allCategories = galleryImages.flatMap((img) => img.images);
+  const watercolors = allCategories.filter(
+    (cat) => cat.category === ImageCategory.WATERCOLORS
+  );
+  const pastels = allCategories.filter(
+    (cat) => cat.category === ImageCategory.PASTELS
+  );
+  const charcoal = allCategories.filter(
+    (cat) => cat.category === ImageCategory.CHARCOAL
+  );
+  const acrylics = allCategories.filter(
+    (cat) => cat.category === ImageCategory.ACRYLICS
+  );
+  const multimediaCollage = allCategories.filter(
+    (cat) => cat.category === ImageCategory.MULTIMEDIACOLLAGE
+  );
 
-  return { imageUrls };
+  return {
+    imageUrls,
+    watercolors,
+    pastels,
+    charcoal,
+    acrylics,
+    multimediaCollage,
+  };
 }
 export default async function AdminPage() {
-  const { imageUrls } = await getGalleryImages();
+  const {
+    imageUrls,
+    watercolors,
+    pastels,
+    charcoal,
+    acrylics,
+    multimediaCollage,
+  } = await getGalleryImages();
   const { featuredImageUrls } = await getFeaturedImages();
   //TODO: fix admin navbar on sm screen
   return (
@@ -43,6 +74,7 @@ export default async function AdminPage() {
             </Link>
           </Button>
         </div>
+
         <div className="py-10 px-16 grid grid-cols-2 sm:grid-cols-3  xl:grid-cols-4 gap-4 ">
           {featuredImageUrls.map((src, index) => (
             <div
@@ -76,6 +108,17 @@ export default async function AdminPage() {
               <span>Edit</span>
             </Link>
           </Button>
+        </div>
+        <div className="">
+          <div className="text-xs text-white">
+            Water colors: {watercolors.length}
+          </div>
+          <div className="text-xs text-white">Pastels: {pastels.length}</div>
+          <div className="text-xs text-white">Acrylics: {acrylics.length}</div>
+          <div className="text-xs text-white">Charcoal: {charcoal.length}</div>
+          <div className="text-xs text-white">
+            Multi-media & Collage: {multimediaCollage.length}
+          </div>
         </div>
         <div className="py-10 px-16 grid grid-cols-2 sm:grid-cols-3  xl:grid-cols-4 gap-4 ">
           {imageUrls.map((src, index) => (
