@@ -75,34 +75,30 @@ export default function AboutPage() {
           <h3 className="text-4xl text-white">Artist statement</h3>
           <p className="text-white">
             Hi there, my name is Kineret and I&apos;m a visual artist. I like to
-            experiment with different medium and often experiment with colors,
-            materials, shapes and techniques.
+            experiment with different medium and often experiment with different
+            colors, materials, shapes and techniques. My inspiration is derived
+            from nature - its colors, sounds, shapes and forms. I find that the
+            process of creativity is most often more significant than the final
+            product. When choosing a subject or a theme and when the ideas
+            starts forming in my head, I start searching for objects from my
+            natural surroundings. For example, a seashell, a rock or a tree can
+            give me the drive for my next creation.
             <br />
             <br />
-            My inspiration is derived from nature - its colors, sounds, shapes
-            and forms. I find that the process of creativity is most often more
-            significant than the final product. When choosing a subject or a
-            theme and when the ideas start forming in my head, I start searching
-            for objects from my natural surroundings. For example, a seashell, a
-            rock or a tree can give me the drive for my next creation.
-            <br />
-            <br /> Observing and focusing on an object or scenery ignites my
+            Observing and focusing on an object or scenery ignites my
             imagination to take over. When I start drawing or painting, the
             shapes, colours and composition come together. It is not always
             clear what the outcome will be, but I let myself experiment and
             enjoy the process. Not knowing what the painting or drawing will end
             up looking like, enables a dynamic creative process. Spontaneity,
-            playfulness, experimentation, and discovery characterise my artwork.
+            playfulness, experimentation, and discovery characterize my artwork.
             <br />
-            <br />
-            Art has always been a significant part of my life and I am trained
-            both as an artist and as an art therapist. I currently live in
-            Zichron Yaakov with my family.
-            <br />
-            <br /> Thank you for visiting my website. In case you have any
-            questions or are interested in purchasing something that you like,
-            Please feel free to contact me via email & I will touch base with
-            you.
+            <br /> Art has always been a significant part of my life and I am
+            trained both as an artist and as an art therapist. I currently live
+            in Zichron Yaakov with my family. Thank you for visiting my website.
+            In case you have any questions or are interested in purchasing
+            something that you like, please feel free to contact me via email &
+            I will get back to you.
           </p>
           <TransitionLink href={"/contact"}>
             <Button className="relative my-10 flex h-[50px] w-40 items-center justify-center font-semibold overflow-hidden bg-red-500 text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-blue-600 before:duration-500 before:ease-out hover:before:h-56 hover:before:w-56 ">
